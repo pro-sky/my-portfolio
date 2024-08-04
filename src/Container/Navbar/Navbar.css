@@ -1,0 +1,84 @@
+.hero{
+    height: 100px;
+    width: 100%;
+
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%; 
+ }
+.logo{
+    font-size: 28px;
+
+}
+ nav span{
+    color:#ea1538;
+}
+nav ul li{
+    list-style-type: none;
+    color:#ea1538;
+    display: inline-block;
+    padding: 10px 20px;
+   
+}
+nav ul li :hover{
+    color:#fff;
+}
+.item{
+    color:#ea1538;
+    font-size: 1.5rem;
+}
+/* nav ul li NavLink{
+    color:#ea1538;
+} */
+
+.hamburger{
+display: none;
+}
+@media (max-width: 710px){
+/* .nav-menu{
+  flex-direction: column;
+  justify-content: center;
+  align-items:flex-end;
+  position: absolute;  
+} */
+nav h2{
+    align-items: flex-start;
+    padding-top: 10px;
+}
+nav ul li{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+   
+}
+.item{
+    font-size: 1rem;
+}
+.hero{
+    height: 190px;
+    width: 100%;
+
+}
+nav{
+    align-items: unset;
+}
+.hamburger{
+    padding-top: 14px;
+    display:initial;
+    /* display: flex; */
+}
+nav ul{
+    padding-left: 100px;
+    /* left: -100%; */
+}
+
+    
+}
