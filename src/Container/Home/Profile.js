@@ -1,5 +1,5 @@
 import React from 'react'
-import Typical from 'react-typical'
+import TextLoop from "react-text-loop";
 import "./Profile.css"
 import {NavLink} from 'react-router-dom';
 // import About from './Container/AboutMe/About';
@@ -36,18 +36,12 @@ export default function Profile() {
                    <div className='profile-details-role'>
                     <span className='primary-text'>
                         {" "}
-                        <h1>
-                            {" "}
-                            <Typical 
-                            loop={Infinity}
-                            steps={[
-                                  "Enthusiastic Coder 🖥️",
-                                  1000,
-                                  "Web Developer 💻",
-                                  1000,
-                            ]}
-                            />
-                        </h1>
+                      <h1>
+                        <TextLoop interval={1000}>
+                          <span>Enthusiastic Coder 🖥️</span>
+                          <span>Web Developer 💻</span>
+                        </TextLoop>
+                      </h1>
                         <span className='profile-role-tagline'>
                             Knack of building application with front and back end operation
                         </span>
