@@ -11,7 +11,7 @@ const About = () => {
           </div>
        <div className='content'>
        <span className='detail'>
-     Front End web  Developer with background Knowledge of Computer fundamental along with knack of 
+     Backend Developer with background Knowledge of Computer fundamental along with knack of 
      building application with utmost efficiency.Strong technical and database skill and willing to
      be an asset for an organization.
      </span>

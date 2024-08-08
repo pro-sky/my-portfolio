@@ -37,13 +37,20 @@ const Resume = () => {
                   <BsPatchCheckFill className='icons'/>
                  <div>
                  <h4> Javascript</h4>
-                  <small className='text-light'>Basic</small>
+                  <small className='text-light'>Intermediate</small>
                  </div>
                   </article>
                   <article className='web-details'>
                   <BsPatchCheckFill className='icons' />
                  <div>
                  <h4> ReactJs</h4>
+                  <small className='text-light'>Intermediate</small>
+                 </div>
+                  </article>
+                  <article className='web-details'>
+                  <BsPatchCheckFill className='icons'/>
+                 <div>
+                 <h4> Ruby on Rails</h4>
                   <small className='text-light'>Intermediate</small>
                  </div>
                   </article>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "./Contact.css";
 import { MdLocationOn } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
@@ -7,6 +8,55 @@ import { BsLinkedin } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { FaTwitter } from "react-icons/fa";
 const Contact = () => {
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    mobile: '',
+    message: ''
+  });
+
+  const resetForm = () => {
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      mobile: '',
+      message: ''
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3000/send_email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      const result = await response.json();
+      if (result.success) {
+        alert('Email sent successfully!');
+        resetForm();
+      } else {
+        alert('Failed to send email.');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
+  };
+
   return (
     <div className="containers cntct">
       <div className="contactus">
@@ -17,22 +67,30 @@ const Contact = () => {
           {/* Form */}
           <div className="contact form">
             <h3> Send a Message</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="formbox">
                 <div className="row50">
                   <div className="inputbox">
                     <span>First Name</span>
                     <input
                       type="text"
-                      placeholder="Enter Your first Name"
-                    ></input>
+                      name="firstName"
+                      placeholder="Enter Your First Name"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className="inputbox">
                     <span>Last Name</span>
                     <input
                       type="text"
-                      placeholder="Enter Your last Name"
-                    ></input>
+                      name="lastName"
+                      placeholder="Enter Your Last Name"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                 </div>
 
@@ -40,26 +98,43 @@ const Contact = () => {
                   <div className="inputbox">
                     <span>Email</span>
                     <input
-                      type="text"
-                      placeholder="Enter Your email id"
-                    ></input>
+                      type="email"
+                      name="email"
+                      placeholder="Enter Your Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className="inputbox">
                     <span>Mobile</span>
-                    <input type="text" placeholder="+91"></input>
+                    <input
+                      type="text"
+                      name="mobile"
+                      placeholder="+91"
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                 </div>
 
                 <div className="row100">
                   <div className="inputbox">
                     <span>Message</span>
-                    <textarea placeholder="Write your message here"></textarea>
+                    <textarea
+                      name="message"
+                      placeholder="Write your message here"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                 </div>
 
                 <div className="row100">
                   <div className="inputbox">
-                    <input type="submit" value="Send"></input>
+                    <input type="submit" value="Send" />
                   </div>
                 </div>
               </div>
