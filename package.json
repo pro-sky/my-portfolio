@@ -14,7 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "prestart": "npm install",
+    "prebuild": "npm install",
     "start": "NODE_OPTIONS=--max_old_space_size=4096 PORT=3000 react-scripts start",
     "build": "NODE_OPTIONS=--max_old_space_size=4096 react-scripts build",
     "test": "react-scripts test",
