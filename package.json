@@ -14,11 +14,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "PORT=3000 react-scripts start",
-    "prebuild": "npm install",
-    "build": "react-scripts build",
+    "prestart": "npm install",
+    "start": "NODE_OPTIONS=--max_old_space_size=4096 PORT=3000 react-scripts start",
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   },
   "eslintConfig": {
     "extends": [
