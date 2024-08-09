@@ -38,7 +38,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/send_email', {
+      const response = await fetch('https://alpha-blogs.onrender.com/send_email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
